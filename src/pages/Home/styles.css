@@ -1,9 +1,16 @@
 .userInput {
 	justify-content: space-between;
 	align-items: center;
-	width: 71rem;
+	min-width: 40%;
+	max-width: 71rem;
 	padding-bottom: 0.3rem;
 	border-bottom: 1px solid var(--user-border-pdtinfo-gray);
+}
+
+@media (max-width: 800px) {
+	.userInput {
+		min-width: 70%;
+	}
 }
 
 .imgHeader {
@@ -17,6 +24,6 @@
 	background-color: var(--cart-ellipse-red);
 	color: var(--bg-font-white);
 	border-radius: 100%;
-	width: 1.4rem;
-	height: 1.4rem;
+	width: 1.8rem;
+	height: 1.8rem;
 }

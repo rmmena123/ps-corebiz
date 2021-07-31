@@ -8,25 +8,31 @@ export const Header = styled.header`
 	justify-content: space-around;
 	align-items: center;
 	margin-top: 1rem;
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+	}
 `;
 
 export const HeaderComponent = styled.div`
 	display: flex;
 	align-items: center;
-`;
 
-export const HeaderInput = styled.input`
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	outline: none;
-	height: 2.3rem;
-	font-weight: 400;
-	font-size: 1.3rem;
+	input {
+		width: 100%;
+		outline: none;
+		height: 2.3rem;
+		font-weight: 400;
+		font-size: 1.3rem;
+	}
+
+	@media (max-width: 800px) {
+		margin-top: 2rem;
+	}
 `;
 
 export const HeaderParagraph = styled.p`
-	font-size: 1rem;
+	font-size: 1.3rem;
 	margin-left: 0.6rem;
+	cursor: pointer;
 `;

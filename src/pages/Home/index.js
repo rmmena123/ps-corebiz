@@ -18,7 +18,7 @@ function App() {
 			<img src={LogoBlack} alt="Logo Corebiz"></img>
 
 			<S.HeaderComponent className="userInput">
-				<S.HeaderInput placeholder="O que está procurando?"></S.HeaderInput>
+				<input placeholder="O que está procurando?"></input>
 				<img src={SearchImage} alt="Ícone Lupa Pesquisa"></img>
 			</S.HeaderComponent>
 
