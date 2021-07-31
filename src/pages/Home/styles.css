@@ -1,0 +1,22 @@
+.userInput {
+	justify-content: space-between;
+	align-items: center;
+	width: 71rem;
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid var(--user-border-pdtinfo-gray);
+}
+
+.imgHeader {
+	margin-left: 2rem;
+}
+
+.cartItems {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--cart-ellipse-red);
+	color: var(--bg-font-white);
+	border-radius: 100%;
+	width: 1.4rem;
+	height: 1.4rem;
+}

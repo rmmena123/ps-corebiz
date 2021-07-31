@@ -2,6 +2,7 @@
 import React from "react";
 import axios from "axios";
 import * as S from "./styles";
+import "./styles.css";
 
 // Importação das imagens
 import LogoBlack from "../../img/logo-corebiz.png";
@@ -12,24 +13,27 @@ import CartImage from "../../img/cart.png";
 // Função que retorna a página
 function App() {
 	return (
-		<header id="navbar">
+		// ---------- Header ----------
+		<S.Header>
 			<img src={LogoBlack} alt="Logo Corebiz"></img>
 
-			<div>
-				<input placeholder="O que você está procurando?"></input>
+			<S.HeaderComponent className="userInput">
+				<S.HeaderInput placeholder="O que está procurando?"></S.HeaderInput>
 				<img src={SearchImage} alt="Ícone Lupa Pesquisa"></img>
-			</div>
+			</S.HeaderComponent>
 
-			<div>
-				<p>Minha Conta</p>
+			<S.HeaderComponent>
 				<img src={UserImage} alt="Ícone Usuário"></img>
-			</div>
+				<S.HeaderParagraph>Minha Conta</S.HeaderParagraph>
 
-			<div>
-				<img src={CartImage} alt="Ícone Carrinho de Compras"></img>
-				<p>0</p>
-			</div>
-		</header>
+				<img
+					src={CartImage}
+					alt="Ícone Carrinho de Compras"
+					className="imgHeader"
+				></img>
+				<S.HeaderParagraph className="cartItems">0</S.HeaderParagraph>
+			</S.HeaderComponent>
+		</S.Header>
 	);
 }
 
