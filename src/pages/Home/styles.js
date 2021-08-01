@@ -245,5 +245,72 @@ export const Product = styled.div`
 `;
 
 // ----- Newsletter -----
+export const NewsletterSection = styled.section`
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+	padding: 4rem 0;
+	background-color: var(--bg-newsletter);
+	font-family: "Lato", sans-serif;
 
-export const NewsletterSection = styled.section``;
+	& .newsletterTitle h2 {
+		text-align: center;
+		margin-bottom: 2rem;
+		font-size: 2.2rem;
+		font-weight: 700;
+	}
+
+	& .newsletterForm {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	& .newsletterForm input {
+		background-color: var(--bg-font-white);
+		width: 28rem;
+		height: 4.8rem;
+		outline: none;
+		margin-right: 1rem;
+		padding-left: 1.5rem;
+		color: var(--input-placeholder);
+		font-size: 1.2rem;
+		font-weight: 700;
+		border-radius: 0.5rem;
+	}
+
+	& .newsletterForm button {
+		background-color: var(--bg-font-black);
+		width: 14rem;
+		height: 4.8rem;
+		border-radius: 0.5rem;
+		color: var(--bg-font-white);
+		font-size: 1.4rem;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	@media (max-width: 820px) {
+		& .newsletterForm {
+			flex-direction: column;
+		}
+
+		& .newsletterForm input {
+			margin-bottom: 2rem;
+			width: 90%;
+			margin-right: 0;
+		}
+
+		& .newsletterForm button {
+			width: 90%;
+		}
+	}
+
+	@media (max-width: 550px) {
+		& .newsletterTitle h2 {
+			text-align: left;
+			margin-left: 1rem;
+		}
+	}
+`;

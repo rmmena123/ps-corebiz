@@ -188,11 +188,11 @@ function App() {
 				</S.ProductsSection>
 
 				<S.NewsletterSection>
-					<div>
+					<div className="newsletterTitle">
 						<h2>Participe de nossas news com promoções e novidades!</h2>
 					</div>
 
-					<div>
+					<div className="newsletterForm">
 						<input type="text" placeholder="Digite seu nome"></input>
 						<input type="email" placeholder="Digite seu email"></input>
 						<button>Eu quero!</button>
