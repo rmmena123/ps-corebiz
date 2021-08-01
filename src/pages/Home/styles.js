@@ -140,3 +140,9 @@ export const BannerParagraph = styled.div`
 		}
 	}
 `;
+
+// ----- Products -----
+
+export const Products = styled.section``;
+
+export const Product = styled.div``;
