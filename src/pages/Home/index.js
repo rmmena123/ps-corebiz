@@ -186,6 +186,18 @@ function App() {
 						</S.Product>
 					</S.Products>
 				</S.ProductsSection>
+
+				<S.NewsletterSection>
+					<div>
+						<h2>Participe de nossas news com promoções e novidades!</h2>
+					</div>
+
+					<div>
+						<input type="text" placeholder="Digite seu nome"></input>
+						<input type="email" placeholder="Digite seu email"></input>
+						<button>Eu quero!</button>
+					</div>
+				</S.NewsletterSection>
 			</S.Main>
 		</>
 	);

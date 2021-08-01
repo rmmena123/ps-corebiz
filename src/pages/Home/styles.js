@@ -243,3 +243,7 @@ export const Product = styled.div`
 		cursor: pointer;
 	}
 `;
+
+// ----- Newsletter -----
+
+export const NewsletterSection = styled.section``;
