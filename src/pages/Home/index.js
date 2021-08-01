@@ -208,12 +208,14 @@ function App() {
 			</S.Main>
 
 			<S.Footer>
-				<div>
+				<div className="addressFooter">
 					<h2>Localização</h2>
-					<img src={BorderTitleWhite} alt="Borda Branca"></img>
-				</div>
+					<img
+						src={BorderTitleWhite}
+						alt="Borda Branca"
+						className="borderFooter"
+					></img>
 
-				<div>
 					<ul>
 						<li>Avenida Andrômeda, 2000. Bloco 6 e 8</li>
 						<li>Alphavile SP</li>
@@ -222,19 +224,19 @@ function App() {
 					</ul>
 				</div>
 
-				<div>
+				<div className="buttonsFooter">
 					<button>
 						<img src={EmailIcon} alt="Ícone E-mail"></img>
-						ENTRE EM CONTATO
+						<p>ENTRE EM CONTATO</p>
 					</button>
 
 					<button>
 						<img src={ContactIcon} alt="Ícone E-mail"></img>
-						FALE COM O NOSSO CONSULTOR ONLINE
+						<p>FALE COM O NOSSO CONSULTOR ONLINE</p>
 					</button>
 				</div>
 
-				<div>
+				<div className="LogosFooter">
 					<div>
 						<p>Created by</p>
 						<img src={LogoWhite} alt="Logo Corebiz"></img>
