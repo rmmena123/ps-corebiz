@@ -48,6 +48,7 @@ function App() {
 						alt="Banner Mobile"
 						className="bannerMobile"
 					></img>
+
 					<S.BannerParagraph>
 						<p>Olá, o que você está buscando?</p>
 

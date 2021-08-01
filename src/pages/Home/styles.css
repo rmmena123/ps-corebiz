@@ -34,3 +34,13 @@
 .bannerMobile {
 	display: none;
 }
+
+@media (max-width: 800px) {
+	.bannerDesktop {
+		display: none;
+	}
+
+	.bannerMobile {
+		display: block;
+	}
+}

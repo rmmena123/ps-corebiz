@@ -63,6 +63,10 @@ export const Banner = styled.section`
 		height: 100%;
 		position: relative;
 	}
+
+	@media (max-width: 800px) {
+		height: 30rem;
+	}
 `;
 
 export const BannerParagraph = styled.div`
@@ -80,5 +84,18 @@ export const BannerParagraph = styled.div`
 	p:last-child {
 		font-size: 4.5rem;
 		font-weight: 900;
+	}
+
+	@media (max-width: 800px) {
+		width: 100%;
+		top: 33%;
+
+		p {
+			font-size: 2rem;
+		}
+
+		p:last-child {
+			font-size: 3rem;
+		}
 	}
 `;
