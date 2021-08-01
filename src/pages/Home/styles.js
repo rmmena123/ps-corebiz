@@ -13,14 +13,28 @@ export const Header = styled.header`
 		cursor: pointer;
 	}
 
+	& .userInput {
+		justify-content: space-between;
+		align-items: center;
+		min-width: 40%;
+		max-width: 71rem;
+		padding-bottom: 0.3rem;
+		border-bottom: 1px solid var(--user-border-pdtinfo-gray);
+	}
+
 	@media (max-width: 800px) {
 		flex-direction: column;
+
+		& .userInput {
+			min-width: 70%;
+		}
 	}
 `;
 
 export const HeaderComponent = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: center;
 
 	input {
 		width: 100%;
@@ -32,6 +46,21 @@ export const HeaderComponent = styled.div`
 
 	img {
 		cursor: pointer;
+	}
+
+	& .imgHeader {
+		margin-left: 2rem;
+	}
+
+	& .cartItems {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--cart-ellipse-red);
+		color: var(--bg-font-white);
+		border-radius: 100%;
+		width: 1.8rem;
+		height: 1.8rem;
 	}
 
 	@media (max-width: 800px) {
@@ -64,8 +93,20 @@ export const Banner = styled.section`
 		position: relative;
 	}
 
+	& .bannerMobile {
+		display: none;
+	}
+
 	@media (max-width: 800px) {
 		height: 30rem;
+
+		& .bannerDesktop {
+			display: none;
+		}
+
+		& .bannerMobile {
+			display: block;
+		}
 	}
 `;
 
