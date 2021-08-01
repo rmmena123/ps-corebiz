@@ -19,6 +19,7 @@ import OfferProduct from "../../img/offer.png";
 import ProductImg from "../../img/product-img.png";
 import EmptyStar from "../../img/star-empty.png";
 import FullStar from "../../img/star-full.png";
+import BorderTitle from "../../img/border.png";
 
 // --- Função que retorna a página
 function App() {
@@ -61,127 +62,130 @@ function App() {
 					</S.BannerParagraph>
 				</S.Banner>
 
-				<S.Products>
-					<div>
+				<S.ProductsSection>
+					<div className="productsTitle">
 						<h2>Mais Vendidos</h2>
+						<img src={BorderTitle} alt="Borda"></img>
 					</div>
 
-					<S.Product>
-						<div>
-							<img src={ProductImg} alt="Imagem Produto"></img>
-							<img src={OfferProduct} alt="Produto em Oferta"></img>
-						</div>
-
-						<div>
-							<p>SAPATO FLOATER PRETO</p>
-
-							<div>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
+					<S.Products>
+						<S.Product>
+							<div className="imagesPdt">
+								<img src={OfferProduct} alt="Produto em Oferta"></img>
+								<img src={ProductImg} alt="Imagem Produto"></img>
 							</div>
 
-							<div>
-								<p>De R$ 299,00</p>
-								<h3>por R$ 100,00</h3>
-								<p>ou em 10x de R$ 10,00</p>
+							<div className="infoPdt">
+								<p>SAPATO FLOATER PRETO</p>
+
+								<div className="imgStars">
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+								</div>
+
+								<div>
+									<p>De R$ 299,00</p>
+									<h3>por R$ 100,00</h3>
+									<p>ou em 10x de R$ 10,00</p>
+								</div>
+
+								<div className="btnProduct">
+									<button>COMPRAR</button>
+								</div>
+							</div>
+						</S.Product>
+
+						<S.Product>
+							<div className="imagesPdt">
+								<img src={OfferProduct} alt="Produto em Oferta"></img>
+								<img src={ProductImg} alt="Imagem Produto"></img>
 							</div>
 
-							<div>
-								<button>Comprar</button>
+							<div className="infoPdt">
+								<p>SAPATO FLOATER PRETO</p>
+
+								<div className="imgStars">
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+								</div>
+
+								<div>
+									<p>De R$ 299,00</p>
+									<h3>por R$ 100,00</h3>
+									<p>ou em 10x de R$ 10,00</p>
+								</div>
+
+								<div className="btnProduct">
+									<button>COMPRAR</button>
+								</div>
 							</div>
-						</div>
-					</S.Product>
+						</S.Product>
 
-					<S.Product>
-						<div>
-							<img src={ProductImg} alt="Imagem Produto"></img>
-							<img src={OfferProduct} alt="Produto em Oferta"></img>
-						</div>
-
-						<div>
-							<p>SAPATO FLOATER PRETO</p>
-
-							<div>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
-							</div>
-
-							<div>
-								<p>De R$ 299,00</p>
-								<h3>por R$ 100,00</h3>
-								<p>ou em 10x de R$ 10,00</p>
-							</div>
-
-							<div>
-								<button>Comprar</button>
-							</div>
-						</div>
-					</S.Product>
-
-					<S.Product>
-						<div>
-							<img src={ProductImg} alt="Imagem Produto"></img>
-							<img src={OfferProduct} alt="Produto em Oferta"></img>
-						</div>
-
-						<div>
-							<p>SAPATO FLOATER PRETO</p>
-
-							<div>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
+						<S.Product>
+							<div className="imagesPdt">
+								<img src={OfferProduct} alt="Produto em Oferta"></img>
+								<img src={ProductImg} alt="Imagem Produto"></img>
 							</div>
 
-							<div>
-								<p>De R$ 299,00</p>
-								<h3>por R$ 100,00</h3>
-								<p>ou em 10x de R$ 10,00</p>
+							<div className="infoPdt">
+								<p>SAPATO FLOATER PRETO</p>
+
+								<div className="imgStars">
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+								</div>
+
+								<div>
+									<p>De R$ 299,00</p>
+									<h3>por R$ 100,00</h3>
+									<p>ou em 10x de R$ 10,00</p>
+								</div>
+
+								<div className="btnProduct">
+									<button>COMPRAR</button>
+								</div>
+							</div>
+						</S.Product>
+
+						<S.Product>
+							<div className="imagesPdt">
+								<img src={OfferProduct} alt="Produto em Oferta"></img>
+								<img src={ProductImg} alt="Imagem Produto"></img>
 							</div>
 
-							<div>
-								<button>Comprar</button>
+							<div className="infoPdt">
+								<p>SAPATO FLOATER PRETO</p>
+
+								<div className="imgStars">
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={FullStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+									<img src={EmptyStar} alt="Avaliação"></img>
+								</div>
+
+								<div>
+									<p>De R$ 299,00</p>
+									<h3>por R$ 100,00</h3>
+									<p>ou em 10x de R$ 10,00</p>
+								</div>
+
+								<div className="btnProduct">
+									<button>COMPRAR</button>
+								</div>
 							</div>
-						</div>
-					</S.Product>
-
-					<S.Product>
-						<div>
-							<img src={ProductImg} alt="Imagem Produto"></img>
-							<img src={OfferProduct} alt="Produto em Oferta"></img>
-						</div>
-
-						<div>
-							<p>SAPATO FLOATER PRETO</p>
-
-							<div>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={FullStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
-								<img src={EmptyStar} alt="Avaliação"></img>
-							</div>
-
-							<div>
-								<p>De R$ 299,00</p>
-								<h3>por R$ 100,00</h3>
-								<p>ou em 10x de R$ 10,00</p>
-							</div>
-
-							<div>
-								<button>Comprar</button>
-							</div>
-						</div>
-					</S.Product>
-				</S.Products>
+						</S.Product>
+					</S.Products>
+				</S.ProductsSection>
 			</S.Main>
 		</>
 	);

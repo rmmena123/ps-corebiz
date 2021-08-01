@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // ---------- Header ----------
 export const Header = styled.header`
-	width: 100vw;
+	width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -143,6 +143,103 @@ export const BannerParagraph = styled.div`
 
 // ----- Products -----
 
-export const Products = styled.section``;
+export const ProductsSection = styled.section`
+	margin-top: 4rem;
+	display: flex;
+	flex-direction: column;
 
-export const Product = styled.div``;
+	& .productsTitle {
+		margin-left: 6rem;
+	}
+
+	& .productsTitle h2 {
+		font-size: 2rem;
+		font-weight: 900;
+	}
+`;
+
+export const Products = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+`;
+
+export const Product = styled.div`
+	width: 21.6rem;
+	height: auto;
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	& .imagesPdt {
+		display: flex;
+		position: relative;
+	}
+
+	& .imagesPdt img:first-child {
+		width: 8rem;
+		position: absolute;
+		right: 0;
+	}
+
+	& .infoPdt {
+		width: 100%;
+		height: 100%;
+		padding-top: 2rem;
+	}
+
+	& .infoPdt:hover {
+		background-color: var(--bgpdt-hover);
+	}
+
+	& .infoPdt p {
+		font-size: 1.2rem;
+		text-align: center;
+		color: var(--user-border-pdtinfo-gray);
+		font-weight: 400;
+	}
+
+	& .infoPdt p:first-child {
+		font-weight: 600;
+	}
+
+	& .infoPdt p:last-child {
+		font-size: 1.1rem;
+	}
+
+	& .infoPdt h3 {
+		font-size: 1.8rem;
+		font-weight: 700;
+		text-align: center;
+	}
+
+	& .imgStars {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	& .btnProduct {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	& .btnProduct button {
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 12.6rem;
+		height: 3.3rem;
+		border-radius: 0.5rem;
+		background-color: var(--bg-font-black);
+		color: var(--bg-font-white);
+		font-size: 1.2rem;
+		cursor: pointer;
+	}
+`;
