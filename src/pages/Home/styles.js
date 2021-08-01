@@ -314,3 +314,6 @@ export const NewsletterSection = styled.section`
 		}
 	}
 `;
+
+// ---------- Main ----------
+export const Footer = styled.footer``;

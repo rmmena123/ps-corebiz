@@ -21,6 +21,13 @@ import EmptyStar from "../../img/star-empty.png";
 import FullStar from "../../img/star-full.png";
 import BorderTitle from "../../img/border.png";
 
+// Footer
+import BorderTitleWhite from "../../img/border-white.png";
+import EmailIcon from "../../img/email.png";
+import ContactIcon from "../../img/contact.png";
+import LogoWhite from "../../img/logo-corebiz-footer.png";
+import VtexLogo from "../../img/logo-vtex.png";
+
 // --- Função que retorna a página
 function App() {
 	return (
@@ -199,6 +206,46 @@ function App() {
 					</div>
 				</S.NewsletterSection>
 			</S.Main>
+
+			<S.Footer>
+				<div>
+					<h2>Localização</h2>
+					<img src={BorderTitleWhite} alt="Borda Branca"></img>
+				</div>
+
+				<div>
+					<ul>
+						<li>Avenida Andrômeda, 2000. Bloco 6 e 8</li>
+						<li>Alphavile SP</li>
+						<li>brasil@corebiz.ag</li>
+						<li>+55 11 3090 1039</li>
+					</ul>
+				</div>
+
+				<div>
+					<button>
+						<img src={EmailIcon} alt="Ícone E-mail"></img>
+						ENTRE EM CONTATO
+					</button>
+
+					<button>
+						<img src={ContactIcon} alt="Ícone E-mail"></img>
+						FALE COM O NOSSO CONSULTOR ONLINE
+					</button>
+				</div>
+
+				<div>
+					<div>
+						<p>Created by</p>
+						<img src={LogoWhite} alt="Logo Corebiz"></img>
+					</div>
+
+					<div>
+						<p>Powered by</p>
+						<img src={VtexLogo} alt="Logo Vtex"></img>
+					</div>
+				</div>
+			</S.Footer>
 		</>
 	);
 }
