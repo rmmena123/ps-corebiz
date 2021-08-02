@@ -1,7 +1,9 @@
-// --- Importações necessárias
-import React from "react";
+// --- Importações de bibliotecas e arquivos
+import React, { useState } from "react";
 import axios from "axios";
 import * as S from "./styles";
+
+// -------------------------------------------------------
 
 // --- Importação das imagens
 // Header
@@ -10,9 +12,13 @@ import SearchImage from "../../img/search.png";
 import UserImage from "../../img/user.png";
 import CartImage from "../../img/cart.png";
 
+// ----------------------
+
 // Main - Banner
 import Banner from "../../img/banner.png";
 import BannerMobile from "../../img/banner-mobile.png";
+
+// ----------------------
 
 // Main - Products
 import OfferProduct from "../../img/offer.png";
@@ -21,6 +27,8 @@ import EmptyStar from "../../img/star-empty.png";
 import FullStar from "../../img/star-full.png";
 import BorderTitle from "../../img/border.png";
 
+// ----------------------
+
 // Footer
 import BorderTitleWhite from "../../img/border-white.png";
 import EmailIcon from "../../img/email.png";
@@ -28,8 +36,77 @@ import ContactIcon from "../../img/contact.png";
 import LogoWhite from "../../img/logo-corebiz-footer.png";
 import VtexLogo from "../../img/logo-vtex.png";
 
-// --- Função que retorna a página
+// -------------------------------------------------------
+
+// --- Função que retorna o App e usa a API
 function App() {
+	// --- Uso da API - POST dos inputs da Newsletter
+
+	// Armazenar estado do nome e e-mail dos inputs
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+
+	// Armazena os dados dos inputs da Newsletter para envio à API
+	var dataNewsletter = { email: email, name: name };
+
+	// Configurações para realizar o POST das informações para a API
+	var configPost = {
+		method: "post",
+		url: "https://corebiz-test.herokuapp.com/api/v1/newsletter",
+		headers: {},
+		data: dataNewsletter,
+	};
+
+	// Variável que armazena o Regex para teste de validação do email
+	var re = /\S+@\S+\.\S+/;
+
+	// Função para realizar a validação dos dados dos inputs e o POST deles para a API caso sejam válidos
+	function handleNewsletter() {
+		axios(configPost)
+			.then(function (response) {
+				alert(
+					"Cadastro realizado com sucesso. Obrigado por assinar nossa newsletter!"
+				);
+				console.log(JSON.stringify(response.data));
+			})
+			.catch(function (error) {
+				if (name === "") {
+					alert("Insira um nome");
+					console.log(error);
+				} else if (!re.test(email)) {
+					alert("Insira um email no formato correto");
+					console.log(error);
+				}
+			});
+	}
+
+	// ----------------------
+
+	/*
+
+	// --- Uso da API - GET dos produtos da API
+
+	// Configurações para realizar o GET das informações dos produtos da API
+	var configGet = {
+		method: "get",
+		url: "https://corebiz-test.herokuapp.com/api/v1/products",
+		headers: {},
+	};
+
+	// Função para realizar o GET dos dados dos produtos da API
+	axios(configGet)
+		.then(function (response) {
+			console.log(JSON.stringify(response.data));
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+
+	*/
+
+	// -------------------------------------------------------
+
+	// --- Retorna os componentes da aplicação
 	return (
 		<>
 			<S.Header>
@@ -200,9 +277,21 @@ function App() {
 					</div>
 
 					<div className="newsletterForm">
-						<input type="text" placeholder="Digite seu nome"></input>
-						<input type="email" placeholder="Digite seu email"></input>
-						<button>Eu quero!</button>
+						<input
+							type="text"
+							placeholder="Digite seu nome"
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						></input>
+
+						<input
+							type="email"
+							placeholder="Digite seu email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						></input>
+
+						<button onClick={handleNewsletter}>Eu quero!</button>
 					</div>
 				</S.NewsletterSection>
 			</S.Main>
