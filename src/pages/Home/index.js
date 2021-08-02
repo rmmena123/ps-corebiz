@@ -41,7 +41,6 @@ import VtexLogo from "../../img/logo-vtex.png";
 // --- Função que retorna o App e usa a API
 function App() {
 	// --- Uso da API - POST dos inputs da Newsletter
-
 	// Armazenar estado do nome e e-mail dos inputs
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -106,6 +105,22 @@ function App() {
 
 	// -------------------------------------------------------
 
+	// --- Função para incrementar o número de compras no carrinho
+	var numItems = 0;
+
+	function incrementCart() {
+		if (localStorage.getItem("cart") !== null) {
+			numItems = localStorage.getItem("cart");
+			// document.getElementById("cartCheckout").innerHTML = numItems;
+		}
+
+		numItems++;
+		localStorage.setItem("cart", numItems);
+		document.getElementById("cartCheckout").innerHTML = numItems;
+	}
+
+	// -------------------------------------------------------
+
 	// --- Retorna os componentes da aplicação
 	return (
 		<>
@@ -126,7 +141,9 @@ function App() {
 						alt="Ícone Carrinho de Compras"
 						className="imgHeader"
 					></img>
-					<S.HeaderParagraph className="cartItems">0</S.HeaderParagraph>
+					<S.HeaderParagraph className="cartItems" id="cartCheckout">
+						0
+					</S.HeaderParagraph>
 				</S.HeaderComponent>
 			</S.Header>
 
@@ -177,7 +194,7 @@ function App() {
 								</div>
 
 								<div className="btnProduct">
-									<button>COMPRAR</button>
+									<button onClick={incrementCart}>COMPRAR</button>
 								</div>
 							</div>
 						</S.Product>
@@ -206,7 +223,7 @@ function App() {
 								</div>
 
 								<div className="btnProduct">
-									<button>COMPRAR</button>
+									<button onClick={incrementCart}>COMPRAR</button>
 								</div>
 							</div>
 						</S.Product>
@@ -235,7 +252,7 @@ function App() {
 								</div>
 
 								<div className="btnProduct">
-									<button>COMPRAR</button>
+									<button onClick={incrementCart}>COMPRAR</button>
 								</div>
 							</div>
 						</S.Product>
@@ -264,7 +281,7 @@ function App() {
 								</div>
 
 								<div className="btnProduct">
-									<button>COMPRAR</button>
+									<button onClick={incrementCart}>COMPRAR</button>
 								</div>
 							</div>
 						</S.Product>
@@ -341,5 +358,5 @@ function App() {
 	);
 }
 
-// Exporta a função App que contém a página
+// Exporta a função App
 export default App;
