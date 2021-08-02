@@ -29,7 +29,7 @@ O site contém algumas funcionalidades e recursos (as não implementadas serão 
 
 ## Utilização do projeto
 
-Para clonar o repositório para sua máquina basta clonar esse repositório. Sugestão:
+Para utilizar o repositório na sua máquina basta clonar esse repositório usando terminal ou uma ferramenta de sua preferência. Sugestão no terminal GIT: 
 
 ### `git clone https://github.com/rmmena123/ps-corebiz.git`
 
