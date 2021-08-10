@@ -52,7 +52,15 @@ function App() {
 	// Função para realizar o GET dos dados dos produtos da API
 	axios(configGet)
 		.then(function (response) {
-			console.log(JSON.stringify(response.data));
+			// Armazena um vetor com os objetos (cada objeto corresponde a um produto contendo suas informações)
+			const products = response.data;
+			const productsData = [];
+
+			// Armazena os produtos no Local Storage para uso
+			products.map((product) => {
+				productsData.push(product);
+			});
+			localStorage.setItem("Products", JSON.stringify(productsData));
 		})
 		.catch(function (error) {
 			console.log(error);
