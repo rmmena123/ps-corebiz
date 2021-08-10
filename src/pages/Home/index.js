@@ -1,5 +1,5 @@
 // --- Importações de bibliotecas e arquivos
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as S from "./styles";
 
@@ -105,19 +105,28 @@ function App() {
 
 	// -------------------------------------------------------
 
-	// --- Função para incrementar o número de compras no carrinho
-	var numItems = 0;
+	let [item, setItem] = useState(0);
 
-	function incrementCart() {
-		if (localStorage.getItem("cart") !== null) {
-			numItems = localStorage.getItem("cart");
-			// document.getElementById("cartCheckout").innerHTML = numItems;
+	useEffect(() => {
+		const data = localStorage.getItem("data");
+
+		if (data) {
+			setItem(JSON.parse(data));
 		}
+	}, []);
 
-		numItems++;
-		localStorage.setItem("cart", numItems);
-		document.getElementById("cartCheckout").innerHTML = numItems;
-	}
+	useEffect(() => {
+		localStorage.setItem("data", JSON.stringify(item));
+		parseInt(item);
+		document.getElementById("cartCheckout").innerHTML = item;
+	});
+
+	const incrementCart = (e) => {
+		e.preventDefault();
+		parseInt(item);
+		item++;
+		setItem(item);
+	};
 
 	// -------------------------------------------------------
 
