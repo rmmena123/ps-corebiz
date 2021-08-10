@@ -38,9 +38,60 @@ import VtexLogo from "../../img/logo-vtex.png";
 
 // -------------------------------------------------------
 
-// --- Função que retorna o App e usa a API
+// --- Função que retorna o App
 function App() {
-	// --- Uso da API - POST dos inputs da Newsletter
+	// --- Uso da API - GET dos produtos da API
+
+	// Configurações para realizar o GET das informações dos produtos da API
+	var configGet = {
+		method: "get",
+		url: "https://corebiz-test.herokuapp.com/api/v1/products",
+		headers: {},
+	};
+
+	// Função para realizar o GET dos dados dos produtos da API
+	axios(configGet)
+		.then(function (response) {
+			console.log(JSON.stringify(response.data));
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+
+	// -------------------------------------------------------
+
+	// --- Funcionalidade - Carrinho de Compras
+
+	// Armazenar estado do número de itens no carrinho
+	let [item, setItem] = useState(0);
+
+	// Busca a informação no Local Storage e a valida
+	useEffect(() => {
+		const data = localStorage.getItem("data");
+
+		if (data) {
+			setItem(JSON.parse(data));
+		}
+	}, []);
+
+	// Persiste o número de itens no Local Store e o apresenta na tela
+	useEffect(() => {
+		localStorage.setItem("data", JSON.stringify(item));
+		parseInt(item);
+		document.getElementById("cartCheckout").innerHTML = item;
+	});
+
+	// Função chamada após o clique no botão comprar, incrementa o número de itens e dispara setItem
+	const incrementCart = (e) => {
+		e.preventDefault();
+		parseInt(item);
+		item++;
+		setItem(item);
+	};
+
+	// -------------------------------------------------------
+
+	// --- Funcionalidade - POST dos inputs da Newsletter
 	// Armazenar estado do nome e e-mail dos inputs
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -78,57 +129,6 @@ function App() {
 				}
 			});
 	}
-
-	// ----------------------
-
-	/*
-
-	// --- Uso da API - GET dos produtos da API
-
-	// Configurações para realizar o GET das informações dos produtos da API
-	var configGet = {
-		method: "get",
-		url: "https://corebiz-test.herokuapp.com/api/v1/products",
-		headers: {},
-	};
-
-	// Função para realizar o GET dos dados dos produtos da API
-	axios(configGet)
-		.then(function (response) {
-			console.log(JSON.stringify(response.data));
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-
-	*/
-
-	// -------------------------------------------------------
-
-	let [item, setItem] = useState(0);
-
-	useEffect(() => {
-		const data = localStorage.getItem("data");
-
-		if (data) {
-			setItem(JSON.parse(data));
-		}
-	}, []);
-
-	useEffect(() => {
-		localStorage.setItem("data", JSON.stringify(item));
-		parseInt(item);
-		document.getElementById("cartCheckout").innerHTML = item;
-	});
-
-	const incrementCart = (e) => {
-		e.preventDefault();
-		parseInt(item);
-		item++;
-		setItem(item);
-	};
-
-	// -------------------------------------------------------
 
 	// --- Retorna os componentes da aplicação
 	return (
