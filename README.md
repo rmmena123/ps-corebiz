@@ -10,7 +10,7 @@
 - HTML5
 - CSS3
 - Javascript
-- ReactJS (Styled Componentes e UseState)
+- ReactJS (Styled Componentes, UseState e UseEffect)
 - Axios
 - Local Storage
 
@@ -21,8 +21,8 @@
 O site contém algumas funcionalidades e recursos (as não implementadas serão feitas posteriormente):
 
 - Site responsivo.
-- Compra de produtos (ao clicar no botão "Comprar", incrementa o carrinho de compras).
-- Geração de produtos através de dados recebidos pela API (não implementado).
+- Compra de produtos (ao clicar no botão "Comprar", incrementa o carrinho de compras e mantém o carrinho com o valor se recarregar a página).
+- Geração de produtos através de dados recebidos da API e tratados.
 - Formulário de validação e envio de nome e e-mail para API (Newsletter).
 
 ---
