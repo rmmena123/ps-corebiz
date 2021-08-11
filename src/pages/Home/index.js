@@ -40,7 +40,7 @@ import VtexLogo from "../../img/logo-vtex.png";
 
 // --- Função que retorna o App
 function App() {
-	// --- Uso da API - GET dos produtos da API
+	// --- Funcionalidade - GET dos produtos da API
 
 	// Configurações para realizar o GET das informações dos produtos da API
 	var configGet = {
@@ -65,6 +65,64 @@ function App() {
 		.catch(function (error) {
 			console.log(error);
 		});
+
+	// -------------------------------------------------------
+
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		let productsArray = localStorage.getItem("Products");
+		productsArray = JSON.parse(productsArray);
+		setProducts(productsArray);
+	}, []);
+
+	products.map((product) => {
+		let productsId = [];
+		let productsImgUrl = [];
+		let productsName = [];
+		let productsStars = [];
+		let productsListPrice = [];
+		let productsPrice = [];
+		let productsInstallmentsArray;
+		let productsInstallments;
+		let productsInstallmentsQuantity = [];
+		let productsInstallmentValue = [];
+
+		productsId = product.productId;
+		console.log(productsId);
+
+		productsImgUrl = product.imageUrl;
+		console.log(productsImgUrl);
+
+		productsName = product.productName;
+		console.log(productsName);
+
+		productsStars = product.stars;
+		console.log(productsStars);
+
+		productsListPrice = product.listPrice;
+		console.log(productsListPrice);
+
+		productsPrice = product.price;
+		console.log(productsPrice);
+
+		productsInstallmentsArray = Object.values(product.installments);
+		console.log(productsInstallmentsArray);
+
+		productsInstallments = productsInstallmentsArray[0];
+		console.log(productsInstallments);
+
+		if (productsInstallments) {
+			productsInstallmentsQuantity = productsInstallments.quantity;
+			productsInstallmentValue = productsInstallments.value;
+		} else {
+			productsInstallmentsQuantity = null;
+			productsInstallmentValue = null;
+		}
+		console.log(productsInstallmentsQuantity);
+		console.log(productsInstallmentValue);
+		console.log("------------------------------------------------------");
+	}, []);
 
 	// -------------------------------------------------------
 
