@@ -1,5 +1,5 @@
 // --- Importações de bibliotecas e arquivos
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as S from "./styles";
 
@@ -22,8 +22,6 @@ import BannerMobile from "../../img/banner-mobile.png";
 
 // Main - Products
 import OfferProduct from "../../img/offer.png";
-// import ProductImg from "../../img/product-img.png";
-// import EmptyStar from "../../img/star-empty.png";
 import FullStar from "../../img/star-full.png";
 import BorderTitle from "../../img/border.png";
 
@@ -35,22 +33,21 @@ import EmailIcon from "../../img/email.png";
 import ContactIcon from "../../img/contact.png";
 import LogoWhite from "../../img/logo-corebiz-footer.png";
 import VtexLogo from "../../img/logo-vtex.png";
-import { render } from "@testing-library/react";
 
 // -------------------------------------------------------
 
 // --- Função que retorna o App
 function App() {
-	// --- Funcionalidade - GET dos produtos da API
+	// ---------- Funcionalidade - GET dos produtos da API ----------
 
-	// Configurações para realizar o GET das informações dos produtos da API
+	// --- Configurações para realizar o GET das informações dos produtos da API
 	var configGet = {
 		method: "get",
 		url: "https://corebiz-test.herokuapp.com/api/v1/products",
 		headers: {},
 	};
 
-	// Função para realizar o GET dos dados dos produtos da API
+	// --- Função para realizar o GET dos dados dos produtos da API
 	axios(configGet)
 		.then(function (response) {
 			// Armazena um vetor com os objetos (cada objeto corresponde a um produto contendo suas informações)
@@ -67,10 +64,12 @@ function App() {
 			console.log(error);
 		});
 
-	// -------------------------------------------------------
+	// --- Preparação dos produtos para utilizar na renderização do App
 
+	// Armazenamento do estado dos produtos
 	const [products, setProducts] = useState([]);
 
+	// Preparação para utilizar no App -> validação
 	useEffect(() => {
 		let productsArray = localStorage.getItem("Products");
 		productsArray = JSON.parse(productsArray);
@@ -79,8 +78,9 @@ function App() {
 
 	// -------------------------------------------------------
 
-	// --- Funcionalidade - Carrinho de Compras
+	// ---------- Funcionalidade - Carrinho de Compras ----------
 
+	// --- Preparação para funcionamento
 	// Armazenar estado do número de itens no carrinho
 	let [item, setItem] = useState(0);
 
@@ -93,7 +93,7 @@ function App() {
 		}
 	}, []);
 
-	// Persiste o número de itens no Local Storage e o apresenta na tela
+	// --- Persiste o número de itens no Local Storage e o apresenta na tela
 	useEffect(() => {
 		localStorage.setItem("data", JSON.stringify(item));
 		parseInt(item);
@@ -110,7 +110,8 @@ function App() {
 
 	// -------------------------------------------------------
 
-	// --- Funcionalidade - POST dos inputs da Newsletter
+	// ---------- Funcionalidade - POST dos inputs da Newsletter ----------
+
 	// Armazenar estado do nome e e-mail dos inputs
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -149,7 +150,9 @@ function App() {
 			});
 	}
 
-	// --- Retorna os componentes da aplicação
+	// -------------------------------------------------------
+
+	// ---------- Retorna os componentes da aplicação ----------
 	return (
 		<>
 			<S.Header>
@@ -199,7 +202,8 @@ function App() {
 
 					<S.Products>
 						{products.map((product, i) => {
-							// let productsId = [];
+							// --- Mapeamento dos produtos para renderização na tela
+							// Instanciação das variáveis necessárias
 							let productsImgUrl = [];
 							let productsName = [];
 							let productsStars = [];
@@ -210,22 +214,17 @@ function App() {
 							let productsInstallmentsQuantity = [];
 							let productsInstallmentValue = [];
 
-							// productsId = product.productId;
-
+							// Armazenamento das informações de um produto
 							productsImgUrl = product.imageUrl;
-
 							productsName = product.productName;
-
 							productsStars = product.stars;
-
 							productsListPrice = product.listPrice;
-
 							productsPrice = product.price;
-
+							// Captura o objeto que está dentro do array de objetos Installments
 							productsInstallmentsArray = Object.values(product.installments);
-
 							productsInstallments = productsInstallmentsArray[0];
 
+							// Valida se a informação é existente e armazena sua nulidade ou valor
 							if (productsInstallments) {
 								productsInstallmentsQuantity = productsInstallments.quantity;
 								productsInstallmentValue = productsInstallments.value;
@@ -234,6 +233,7 @@ function App() {
 								productsInstallmentValue = null;
 							}
 
+							// Função para renderizar as estrelas de avaliação
 							function imgStars(productsStars) {
 								var arrayStars = [];
 								var counter = 0;
@@ -248,6 +248,7 @@ function App() {
 								return arrayStars;
 							}
 
+							// Funções para renderizar os preços (se disponíveis) na tela
 							function renderListPrice(listPrice) {
 								if (listPrice === null) {
 									return <p></p>;
