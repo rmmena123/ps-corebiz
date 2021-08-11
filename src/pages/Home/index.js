@@ -1,5 +1,5 @@
 // --- Importações de bibliotecas e arquivos
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import * as S from "./styles";
 
@@ -22,8 +22,8 @@ import BannerMobile from "../../img/banner-mobile.png";
 
 // Main - Products
 import OfferProduct from "../../img/offer.png";
-import ProductImg from "../../img/product-img.png";
-import EmptyStar from "../../img/star-empty.png";
+// import ProductImg from "../../img/product-img.png";
+// import EmptyStar from "../../img/star-empty.png";
 import FullStar from "../../img/star-full.png";
 import BorderTitle from "../../img/border.png";
 
@@ -35,6 +35,7 @@ import EmailIcon from "../../img/email.png";
 import ContactIcon from "../../img/contact.png";
 import LogoWhite from "../../img/logo-corebiz-footer.png";
 import VtexLogo from "../../img/logo-vtex.png";
+import { render } from "@testing-library/react";
 
 // -------------------------------------------------------
 
@@ -76,54 +77,6 @@ function App() {
 		setProducts(productsArray);
 	}, []);
 
-	products.map((product) => {
-		let productsId = [];
-		let productsImgUrl = [];
-		let productsName = [];
-		let productsStars = [];
-		let productsListPrice = [];
-		let productsPrice = [];
-		let productsInstallmentsArray;
-		let productsInstallments;
-		let productsInstallmentsQuantity = [];
-		let productsInstallmentValue = [];
-
-		productsId = product.productId;
-		console.log(productsId);
-
-		productsImgUrl = product.imageUrl;
-		console.log(productsImgUrl);
-
-		productsName = product.productName;
-		console.log(productsName);
-
-		productsStars = product.stars;
-		console.log(productsStars);
-
-		productsListPrice = product.listPrice;
-		console.log(productsListPrice);
-
-		productsPrice = product.price;
-		console.log(productsPrice);
-
-		productsInstallmentsArray = Object.values(product.installments);
-		console.log(productsInstallmentsArray);
-
-		productsInstallments = productsInstallmentsArray[0];
-		console.log(productsInstallments);
-
-		if (productsInstallments) {
-			productsInstallmentsQuantity = productsInstallments.quantity;
-			productsInstallmentValue = productsInstallments.value;
-		} else {
-			productsInstallmentsQuantity = null;
-			productsInstallmentValue = null;
-		}
-		console.log(productsInstallmentsQuantity);
-		console.log(productsInstallmentValue);
-		console.log("------------------------------------------------------");
-	}, []);
-
 	// -------------------------------------------------------
 
 	// --- Funcionalidade - Carrinho de Compras
@@ -140,7 +93,7 @@ function App() {
 		}
 	}, []);
 
-	// Persiste o número de itens no Local Store e o apresenta na tela
+	// Persiste o número de itens no Local Storage e o apresenta na tela
 	useEffect(() => {
 		localStorage.setItem("data", JSON.stringify(item));
 		parseInt(item);
@@ -245,121 +198,141 @@ function App() {
 					</div>
 
 					<S.Products>
-						<S.Product>
-							<div className="imagesPdt">
-								<img src={OfferProduct} alt="Produto em Oferta"></img>
-								<img src={ProductImg} alt="Imagem Produto"></img>
-							</div>
+						{products.map((product, i) => {
+							// let productsId = [];
+							let productsImgUrl = [];
+							let productsName = [];
+							let productsStars = [];
+							let productsListPrice = [];
+							let productsPrice = [];
+							let productsInstallmentsArray;
+							let productsInstallments;
+							let productsInstallmentsQuantity = [];
+							let productsInstallmentValue = [];
 
-							<div className="infoPdt">
-								<p>SAPATO FLOATER PRETO</p>
+							// productsId = product.productId;
 
-								<div className="imgStars">
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-								</div>
+							productsImgUrl = product.imageUrl;
 
-								<div>
-									<p>De R$ 299,00</p>
-									<h3>por R$ 100,00</h3>
-									<p>ou em 10x de R$ 10,00</p>
-								</div>
+							productsName = product.productName;
 
-								<div className="btnProduct">
-									<button onClick={incrementCart}>COMPRAR</button>
-								</div>
-							</div>
-						</S.Product>
+							productsStars = product.stars;
 
-						<S.Product>
-							<div className="imagesPdt">
-								<img src={OfferProduct} alt="Produto em Oferta"></img>
-								<img src={ProductImg} alt="Imagem Produto"></img>
-							</div>
+							productsListPrice = product.listPrice;
 
-							<div className="infoPdt">
-								<p>SAPATO FLOATER PRETO</p>
+							productsPrice = product.price;
 
-								<div className="imgStars">
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-								</div>
+							productsInstallmentsArray = Object.values(product.installments);
 
-								<div>
-									<p>De R$ 299,00</p>
-									<h3>por R$ 100,00</h3>
-									<p>ou em 10x de R$ 10,00</p>
-								</div>
+							productsInstallments = productsInstallmentsArray[0];
 
-								<div className="btnProduct">
-									<button onClick={incrementCart}>COMPRAR</button>
-								</div>
-							</div>
-						</S.Product>
+							if (productsInstallments) {
+								productsInstallmentsQuantity = productsInstallments.quantity;
+								productsInstallmentValue = productsInstallments.value;
+							} else {
+								productsInstallmentsQuantity = null;
+								productsInstallmentValue = null;
+							}
 
-						<S.Product>
-							<div className="imagesPdt">
-								<img src={OfferProduct} alt="Produto em Oferta"></img>
-								<img src={ProductImg} alt="Imagem Produto"></img>
-							</div>
+							function imgStars(productsStars) {
+								var arrayStars = [];
+								var counter = 0;
+								while (productsStars !== 0) {
+									productsStars--;
+									arrayStars[counter] = (
+										<img src={FullStar} alt="Estrela"></img>
+									);
+									counter++;
+								}
 
-							<div className="infoPdt">
-								<p>SAPATO FLOATER PRETO</p>
+								return arrayStars;
+							}
 
-								<div className="imgStars">
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-								</div>
+							function renderListPrice(listPrice) {
+								if (listPrice === null) {
+									return <p></p>;
+								} else {
+									let price = JSON.stringify(listPrice);
+									let reais = Math.floor(price.length - 2);
+									let result =
+										price.substr(0, reais) + "," + price.substr(reais);
+									return <p>De R$ {result}</p>;
+								}
+							}
 
-								<div>
-									<p>De R$ 299,00</p>
-									<h3>por R$ 100,00</h3>
-									<p>ou em 10x de R$ 10,00</p>
-								</div>
+							function renderPrice(productPrice) {
+								let price = JSON.stringify(productPrice);
+								let reais = Math.floor(price.length - 2);
+								let result = price.substr(0, reais) + "," + price.substr(reais);
 
-								<div className="btnProduct">
-									<button onClick={incrementCart}>COMPRAR</button>
-								</div>
-							</div>
-						</S.Product>
+								return <h3>por R$ {result}</h3>;
+							}
 
-						<S.Product>
-							<div className="imagesPdt">
-								<img src={OfferProduct} alt="Produto em Oferta"></img>
-								<img src={ProductImg} alt="Imagem Produto"></img>
-							</div>
+							function renderInstallments(
+								productsInstallmentsQuantity,
+								productsInstallmentValue
+							) {
+								if (
+									productsInstallmentsQuantity === null ||
+									productsInstallmentValue === null
+								) {
+									return <p></p>;
+								} else {
+									let price = JSON.stringify(productsInstallmentValue);
+									let reais = Math.floor(price.length - 2);
+									let result =
+										price.substr(0, reais) + "," + price.substr(reais);
+									return (
+										<p>
+											ou em {JSON.stringify(productsInstallmentsQuantity)}x de
+											R$ {result}
+										</p>
+									);
+								}
+							}
 
-							<div className="infoPdt">
-								<p>SAPATO FLOATER PRETO</p>
+							function renderOffer(listPrice) {
+								if (listPrice === null) {
+									return <p></p>;
+								} else {
+									return (
+										<img
+											src={OfferProduct}
+											alt="Produto em Oferta"
+											className="imgOffer"
+										></img>
+									);
+								}
+							}
 
-								<div className="imgStars">
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={FullStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-									<img src={EmptyStar} alt="Avaliação"></img>
-								</div>
+							return (
+								<S.Product>
+									<div className="imagesPdt">
+										{renderOffer(productsListPrice)}
+										<img src={productsImgUrl} alt="Imagem Produto"></img>
+									</div>
 
-								<div>
-									<p>De R$ 299,00</p>
-									<h3>por R$ 100,00</h3>
-									<p>ou em 10x de R$ 10,00</p>
-								</div>
+									<div className="infoPdt">
+										<p>{productsName}</p>
 
-								<div className="btnProduct">
-									<button onClick={incrementCart}>COMPRAR</button>
-								</div>
-							</div>
-						</S.Product>
+										<div className="imgStars">{imgStars(productsStars)}</div>
+
+										<div>
+											{renderListPrice(productsListPrice)}
+											{renderPrice(productsPrice)}
+											{renderInstallments(
+												productsInstallmentsQuantity,
+												productsInstallmentValue
+											)}
+										</div>
+
+										<div className="btnProduct">
+											<button onClick={incrementCart}>COMPRAR</button>
+										</div>
+									</div>
+								</S.Product>
+							);
+						})}
 					</S.Products>
 				</S.ProductsSection>
 

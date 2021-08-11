@@ -179,7 +179,7 @@ export const Product = styled.div`
 		position: relative;
 	}
 
-	& .imagesPdt img:first-child {
+	& .imagesPdt .imgOffer {
 		width: 8rem;
 		position: absolute;
 		right: 0;
@@ -187,8 +187,12 @@ export const Product = styled.div`
 
 	& .infoPdt {
 		width: 100%;
-		height: 100%;
+		min-height: 15rem;
 		padding-top: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	& .infoPdt:hover {
